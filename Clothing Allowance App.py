@@ -8,7 +8,7 @@ root.title("Clothing Allowance App")
 
 # Create and set the welcome text variable
 welcome_text = StringVar()
-welcome_text.set("Welcome! You can deposit or withdraw money and see your progress towards your goals.")
+welcome_text.set("Welcome! You can track and edit all your children's allowances and if they are on track to reach the goal. ")
 
 # Create and pack the welcome label
 welcome_label = Label(root, textvariable=welcome_text, wraplength=300)
