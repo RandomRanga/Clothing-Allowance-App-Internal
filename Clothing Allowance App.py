@@ -7,19 +7,39 @@ root.title("Clothing Allowance App")
 
 
 
-#Frame for top part of app
+
+###### GUI CODE ######
+
+
+# Frame for top part of app
 top_frame = ttk.LabelFrame(root)
 top_frame.grid(row=0, column=0, padx=10, pady=10, sticky="NSEW")
 
 
 
-# Create and set the welcome text variable
+
+# Creates and sets the welcome text variable
 welcome_text = StringVar()
 welcome_text.set("Welcome! You can track and edit all your children's allowances and if they are on track to reach the goal.")
 
-# Create and pack the welcome label
+# Creates and grid the welcome label
 welcome_label = ttk.Label(top_frame, textvariable=welcome_text, wraplength=300)
 welcome_label.grid(row=0, column=0, columnspan=2, padx = 10, pady = 10)
+
+
+
+# Creates and sets the children details variable
+children_details = StringVar()
+children_details.set("Nikau: $300 \nHana: $300 \nTia: $300 ")
+
+# Create the details label and pack it into the GUI
+details_label = ttk.Label(top_frame, textvariable=children_details)
+details_label.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
+
+
+
+
+
 
 
 
@@ -27,7 +47,6 @@ welcome_label.grid(row=0, column=0, columnspan=2, padx = 10, pady = 10)
 # Frame for the bottom part of app
 bottom_frame = ttk.LabelFrame(root)
 bottom_frame.grid(row=1, column=0, padx=10, pady=10, sticky="NSEW")
-
 
 
 
