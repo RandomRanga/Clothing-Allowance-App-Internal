@@ -16,6 +16,14 @@ class Child:
 		self.bonus_cost = bonus_cost
 
 
+  	# buy method subtracts money from balance and ensures it is positive.
+  	def buy(self, amount):
+    	if amount > 0:
+    	  self.allowance -= amount
+    	  return True
+    	else:
+    	  return False
+
 
 	
 
