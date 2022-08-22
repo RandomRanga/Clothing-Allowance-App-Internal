@@ -15,6 +15,8 @@ class Child:
 		self.allowance = allowance
 		self.bonus_cost = bonus_cost
 
+
+
 	
 
 
@@ -24,22 +26,6 @@ child1 = Child("Nikau", 300, 50)
 child2 = Child("Hana", 300, 50)
 
 child3 = Child("Tia", 300, 50)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -119,7 +105,13 @@ price.set("")
 
 # Entry for user to enter amoun
 price_entry = ttk.Entry(bottom_frame, textvariable = price)
-price_entry.grid(row=4, column=1, padx = 10, pady = 10)
+price_entry.grid(row=4, column=1, padx = 10 , pady = 10)
+
+
+
+# Sumbit button to sumbit it when you finished.
+submit_button = ttk.Button(bottom_frame, text="Submit")
+submit_button.grid(row=6, column=0, columnspan=2, padx=10, pady=10)
 
 
 
