@@ -1,14 +1,57 @@
 from tkinter import *
 from tkinter import ttk
 
-# Create the window with title
-root=Tk()
-root.title("Clothing Allowance App")
+
+###### CLASS CODE ######
+
+# Class so it is not repetitive for the children
+class Child:
+	'''Collects all info about each child, 
+	stores it and then displays it.'''
+
+	# Collects and stores all child's info.
+	def __init__(self, name, allowance, bonus_cost):
+		self.name = name
+		self.allowance = allowance
+		self.bonus_cost = bonus_cost
+
+	
+
+
+# Puts childs info in , and prints it.
+child1 = Child("Nikau", 300, 50)
+
+child2 = Child("Hana", 300, 50)
+
+child3 = Child("Tia", 300, 50)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 ###### GUI CODE ######
+
+# Create the window with title
+root=Tk()
+root.title("Clothing Allowance App")
+
+
 
 
 # Frame for top part of app
