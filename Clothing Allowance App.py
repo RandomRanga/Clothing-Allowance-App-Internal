@@ -2,7 +2,6 @@ from tkinter import *
 from tkinter import ttk
 
 
-
 ###### CLASS CODE ######
 
 # Class so it is not repetitive for the children
@@ -16,13 +15,73 @@ class Child:
 		self.allowance = allowance
 		self.bonus_cost = bonus_cost
 
+
   	# buy method subtracts money from balance and ensures it is positive.
-  	def buy(self, price):
-    	if price > 0:
-    	  self.allowance -= price
-    	  return True
-    	else:
-    	  return False
+	def buy(self, price):
+		if price > 0:
+			self.allowance -= price
+			return True
+		else:
+			return False
+
+
+	
+##### FUNCION CODE #####
+
+# Variables to store allowance balance
+nikau_balance = 300
+hana_balance = 300
+tia_balance = 300
+
+
+
+# Function that will update the alloawnce balance
+def update_balance():
+	global nikau_balance, hana_balance, tia_balance
+	child = chosen_name.get()
+
+	if child == "Nikau":
+  		if nikau_balance - price.get() >= 0:
+  			nikau_balance -= price.get()
+  		else:
+  			# Change later to put in GUI
+  			print("Sorry Nikau don't have eneogh money for that.")
+
+	elif child == "Hana":
+		if hana_balance - price.get() >= 0:
+			hana_balance -= price.get()
+		else:
+  			# Change later to put in GUI
+			print("Sorry Hana don't have eneogh money for that.")
+
+	elif child == "Tia":
+		if tia_balance - price.get() >= 0:
+			tia_balance -= price.get()
+		else:
+  			# Change later to put in GUI
+			print("Sorry Tia don't have eneogh money for that.")
+	else:
+  		# Change later to put in GUI
+  		print("Sorry something has gone wrong please refresh and try again.")
+
+	balance_string = "Nikau: ${:.2f}\nHana: ${:.2f}\nTia: ${:.2f}".format(nikau_balance, hana_balance, tia_balance)
+	children_details.set(balance_string)
+	price.set("")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
