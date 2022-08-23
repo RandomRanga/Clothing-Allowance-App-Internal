@@ -30,13 +30,28 @@ class Child:
 
 
 
+##### FUNCION CODE #####
 
 
+# Function to get child names
 def create_name_list():
 	name_list = []
 	for child in child_list:
 		name_list.append(child.name)
 	return name_list
+
+
+# Funcion that will update the balance of the allowance
+def update_balance():
+	balance_string = ""
+
+	# Append each child's allowance
+	for child in child_list:
+		balance_string += "{}: ${:.2f}\n".format(child.name, child.allowance)
+
+	children_details.set(balance_string)
+
+
 
 
 
@@ -45,7 +60,6 @@ def create_name_list():
 
 # Set up lists
 child_list = []
-
 
 
 # Puts childs info in , and prints it.
@@ -86,7 +100,7 @@ welcome_label.grid(row=0, column=0, columnspan=2, padx = 10, pady = 10)
 
 # Creates and sets the children details variable
 children_details = StringVar()
-children_details.set("Nikau: $300 \nHana: $300 \nTia: $300 ")
+
 
 # Create the details label and pack it into the GUI
 details_label = ttk.Label(top_frame, textvariable=children_details)
@@ -136,10 +150,11 @@ price_entry.grid(row=4, column=1, padx = 10 , pady = 10)
 
 
 # Sumbit button to sumbit it when you finished.
-submit_button = ttk.Button(bottom_frame, text="Submit")
+submit_button = ttk.Button(bottom_frame, text="Submit", command = update_balance)
 submit_button.grid(row=6, column=0, columnspan=2, padx=10, pady=10)
 
 
 
 # Runs the main loop
+update_balance()
 root.mainloop()
