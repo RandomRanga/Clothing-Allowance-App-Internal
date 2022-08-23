@@ -14,9 +14,11 @@ class Child:
 		self.name = name
 		self.allowance = allowance
 		self.bonus_cost = bonus_cost
+		child_list.append(self)
 
 
   	# buy method subtracts money from balance and ensures it is positive.
+
 	def buy(self, price):
 		if price > 0:
 			self.allowance -= price
@@ -25,7 +27,7 @@ class Child:
 			return False
 
 
-	
+
 ##### FUNCION CODE #####
 
 # Variables to store allowance balance
@@ -79,19 +81,45 @@ def update_balance():
 
 
 
+##### FUNCION CODE #####
+
+
+# Function to get child names
+def create_name_list():
+	name_list = []
+	for child in child_list:
+		name_list.append(child.name)
+	return name_list
+
+
+# Funcion that will update the balance of the allowance
+def update_balance():
+	balance_string = ""
+
+	# Append each child's allowance
+	for child in child_list:
+		balance_string += "{}: ${:.2f}\n".format(child.name, child.allowance)
+
+	children_details.set(balance_string)
 
 
 
 
 
+
+
+
+
+
+# Set up lists
+child_list = []
 
 
 # Puts childs info in , and prints it.
 child1 = Child("Nikau", 300, 50)
-
 child2 = Child("Hana", 300, 50)
-
 child3 = Child("Tia", 300, 50)
+child_names = create_name_list()
 
 
 
@@ -125,7 +153,7 @@ welcome_label.grid(row=0, column=0, columnspan=2, padx = 10, pady = 10)
 
 # Creates and sets the children details variable
 children_details = StringVar()
-children_details.set("Nikau: $300 \nHana: $300 \nTia: $300 ")
+
 
 # Create the details label and pack it into the GUI
 details_label = ttk.Label(top_frame, textvariable=children_details)
@@ -145,19 +173,18 @@ bottom_frame.grid(row=1, column=0, padx=10, pady=10, sticky="NSEW")
 
 
 
-# Label for name combobox
+# Label for child combobox
 name_label = ttk.Label(bottom_frame, text = "Who spent their allowance:")
 name_label.grid(row=3, column=0, padx = 10, pady = 10)
 
-# Set up list and variable for combobox
-name_list = ["Nikau", "Hana", "Tia"]
-chosen_name = StringVar()
-chosen_name.set(name_list[0])
+# Sets a option list for combobox
+chosen_child = StringVar()
+chosen_child.set(child_names[0])
 
-# Combobox to select name
-name_box = ttk.Combobox(bottom_frame, textvariable=chosen_name, state="readonly")
-name_box['values'] = name_list
-name_box.grid(row=3, column=1, padx = 10, pady = 10)
+# Combobox to select child
+child_box = ttk.Combobox(bottom_frame, textvariable=chosen_child, state="readonly")
+child_box['values'] = child_names
+child_box.grid(row=3, column=1, padx = 10, pady = 10)
 
 
 
@@ -182,4 +209,5 @@ submit_button.grid(row=6, column=0, columnspan=2, padx=10, pady=10)
 
 
 # Runs the main loop
+update_balance()
 root.mainloop()
