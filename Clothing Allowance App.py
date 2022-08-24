@@ -30,59 +30,6 @@ class Child:
 
 ##### FUNCION CODE #####
 
-# Variables to store allowance balance
-nikau_balance = 300
-hana_balance = 300
-tia_balance = 300
-
-
-
-# Function that will update the alloawnce balance
-def update_balance():
-	global nikau_balance, hana_balance, tia_balance
-	child = chosen_name.get()
-
-	if child == "Nikau":
-  		if nikau_balance - price.get() >= 0:
-  			nikau_balance -= price.get()
-  		else:
-  			# Change later to put in GUI
-  			print("Sorry Nikau don't have eneogh money for that.")
-
-	elif child == "Hana":
-		if hana_balance - price.get() >= 0:
-			hana_balance -= price.get()
-		else:
-  			# Change later to put in GUI
-			print("Sorry Hana don't have eneogh money for that.")
-
-	elif child == "Tia":
-		if tia_balance - price.get() >= 0:
-			tia_balance -= price.get()
-		else:
-  			# Change later to put in GUI
-			print("Sorry Tia don't have eneogh money for that.")
-	else:
-  		# Change later to put in GUI
-  		print("Sorry something has gone wrong please refresh and try again.")
-
-	balance_string = "Nikau: ${:.2f}\nHana: ${:.2f}\nTia: ${:.2f}".format(nikau_balance, hana_balance, tia_balance)
-	children_details.set(balance_string)
-	price.set("")
-
-
-
-
-
-
-
-
-
-
-
-
-##### FUNCION CODE #####
-
 
 # Function to get child names
 def create_name_list():
