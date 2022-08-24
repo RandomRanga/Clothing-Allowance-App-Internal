@@ -60,6 +60,24 @@ def buy_item(child):
 		button_feedback.set("Please enter a postive.")
 
 
+# Function to make it all work
+def manage_feedback():
+	try:
+		for child in child_list:
+			if chosen_child.get() == child.name:
+				buy_item(child)
+
+
+		# Update the GUI
+		update_balance()
+		price.set("")
+
+	except ValueError:
+		button_feedback.set("Please enter a valid number.")
+
+
+
+
 
 
 # Set up lists
