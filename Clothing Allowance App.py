@@ -28,7 +28,7 @@ class Child:
 
 
 
-##### FUNCION CODE #####
+##### FUNCTION CODE #####
 
 
 # Function to get child names
@@ -39,7 +39,7 @@ def create_name_list():
 	return name_list
 
 
-# Funcion that will update the balance of the allowance
+# Function that will update the balance of the allowance
 def update_balance():
 	balance_string = ""
 
@@ -50,6 +50,14 @@ def update_balance():
 	children_details.set(balance_string)
 
 
+
+# Buy item function for when someone buys an item
+def buy_item(child):
+	if child.buy(price.get()):
+		button_feedback.set("Success, {} bought an item for ${:.2f}.".format(child.name, price.get()))
+
+	else:
+		button_feedback.set("Please enter a postive.")
 
 
 
@@ -146,12 +154,11 @@ price_entry.grid(row=4, column=1, padx = 10 , pady = 10)
 
 
 # Sumbit button to sumbit it when you finished.
-submit_button = ttk.Button(bottom_frame, text="Submit", command = update_balance)
+submit_button = ttk.Button(bottom_frame, text="Submit", command = manage_feedback)
 submit_button.grid(row=6, column=0, columnspan=2, padx=10, pady=10)
 
 # Feedback label so the user knows what happend
 button_feedback = StringVar()
-button_feedback.set("Testing")
 button_feedback_label = ttk.Label(bottom_frame, textvariable=button_feedback)
 button_feedback_label.grid(row=7, column=0, columnspan=2)
 
