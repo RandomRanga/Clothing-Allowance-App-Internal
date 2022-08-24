@@ -54,10 +54,6 @@ def update_balance():
 
 
 
-
-
-
-
 # Set up lists
 child_list = []
 
@@ -153,6 +149,11 @@ price_entry.grid(row=4, column=1, padx = 10 , pady = 10)
 submit_button = ttk.Button(bottom_frame, text="Submit", command = update_balance)
 submit_button.grid(row=6, column=0, columnspan=2, padx=10, pady=10)
 
+# Feedback label so the user knows what happend
+button_feedback = StringVar()
+button_feedback.set("Testing")
+button_feedback_label = ttk.Label(bottom_frame, textvariable=button_feedback)
+button_feedback_label.grid(row=7, column=0, columnspan=2)
 
 
 # Runs the main loop
