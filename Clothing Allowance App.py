@@ -57,7 +57,7 @@ def buy_item(child):
 		button_feedback.set("Success, {} bought an item for ${:.2f}.".format(child.name, price.get()))
 
 	else:
-		button_feedback.set("Please enter a postive.")
+		button_feedback.set("Please enter a postive number.")
 
 
 # Function to make it all work
