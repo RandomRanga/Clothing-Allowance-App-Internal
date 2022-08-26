@@ -20,7 +20,7 @@ class Child:
   	# buy method subtracts money from balance and ensures it is positive.
 
 	def buy(self, price):
-		if price > 0:
+		if price > 0  and price <= self.allowance:
 			self.allowance -= price
 			return True
 		else:
@@ -57,7 +57,7 @@ def buy_item(child):
 		button_feedback.set("Success, {} bought an item for ${:.2f}.".format(child.name, price.get()))
 
 	else:
-		button_feedback.set("Please enter a postive number.")
+		button_feedback.set("Not enough money left in {}'s allowance or not valid price.".format(child.name))
 
 
 # Function to make it all work
