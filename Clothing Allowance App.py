@@ -22,7 +22,7 @@ class Child:
 	def buy(self, price):
 		if price < 0:
 			raise Exception ("negitive value")
-		if price >= self.allowance:
+		if price > self.allowance:
 			raise Exception ('value exceeds allowance')
 		self.allowance -= price
 		return True
