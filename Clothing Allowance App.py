@@ -20,11 +20,13 @@ class Child:
   	# buy method subtracts money from balance and ensures it is positive.
 
 	def buy(self, price):
-		if price > 0  and price <= self.allowance:
-			self.allowance -= price
-			return True
-		else:
-			return False
+		if price < 0:
+			raise Exception ("negitive value")
+		if price >= self.allowance:
+			raise Exception ('value exceeds allowance')
+		self.allowance -= price
+		return True
+
 
 
 
@@ -53,11 +55,20 @@ def update_balance():
 
 # Buy item function for when someone buys an item
 def buy_item(child):
-	if child.buy(price.get()):
-		button_feedback.set("Success, {} bought an item for ${:.2f}.".format(child.name, price.get()))
+	try:
+		if child.buy(price.get()):
+			button_feedback.set("Success, {} bought an item for ${:.2f}.".format(child.name, price.get()))
 
-	else:
-		button_feedback.set("Not enough money left in {}'s allowance or not valid price.".format(child.name))
+	except Exception as e:
+		error = e.args[0]
+		if error == "negitive value":
+			button_feedback.set("Please enter a positive number.")
+		if error == "value exceeds allowance":
+			button_feedback.set("Sorry {} does not have sufficient allowance left.".format(child.name))
+
+
+		#else:
+		#	button_feedback.set("Not enough money left in {}'s allowance or not valid price.".format(child.name))
 
 
 # Function to make it all work
