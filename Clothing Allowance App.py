@@ -60,13 +60,12 @@ def buy_item(child):
 
 	except Exception as e:
 		error = e.args[0]
-		if ValueError:
-			button_feedback.set("Please enter a valid number.")
 		if error == "negitive value":
 			button_feedback.set("Please enter a positive number.")
-		if error == "value exceeds allowance":
+		elif error == "value exceeds allowance":
 			button_feedback.set("Sorry {} does not have sufficient allowance left.".format(child.name))
-		
+		else:
+			button_feedback.set("Please enter a valid number.")
 
 
 
