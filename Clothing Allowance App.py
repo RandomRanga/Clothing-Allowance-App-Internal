@@ -22,7 +22,7 @@ class Child:
 		if price < 0:
 			raise Exception ("negitive value")
 		if price > self.allowance:
-			raise Exception ('value exceeds allowance')
+			raise Exception ("value exceeds allowance")
 		self.allowance -= price
 		return True
 
@@ -60,26 +60,26 @@ def buy_item(child):
 
 	except Exception as e:
 		error = e.args[0]
+		if ValueError:
+			button_feedback.set("Please enter a valid number.")
 		if error == "negitive value":
 			button_feedback.set("Please enter a positive number.")
 		if error == "value exceeds allowance":
 			button_feedback.set("Sorry {} does not have sufficient allowance left.".format(child.name))
+		
+
 
 
 
 # Checks if the chosen name is in child_list then lets that child buy_item, updates GUI and clears price entry. 
 def manage_feedback():
-	try:
-		for child in child_list:
-			if chosen_child.get() == child.name:
-				buy_item(child)
+	for child in child_list:
+		if chosen_child.get() == child.name:
+			buy_item(child)
 
+	update_balance()
+	price.set("")
 
-		update_balance()
-		price.set("")
-
-	except ValueError:
-		button_feedback.set("Please enter a valid number.")
 
 
 
