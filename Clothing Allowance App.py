@@ -26,6 +26,15 @@ class Child:
 		self.allowance -= price
 		return True
 
+	# Calculates if the bonus is possible for each child, the returns either string to display. 
+	def get_progress(self):
+		if self.allowance >= 50:
+			progress =  "On target for bonus."
+		else:
+			progress =  "Bonus not possible."
+		return progress
+
+
 
 
 
@@ -40,14 +49,14 @@ def create_name_list():
 	return name_list
 
 
-# Updates the allowance display of each child.
+# Updates the allowance display of each child, and calls get_progress to show if they can get the bonus. 
 def update_balance():
 	balance_string = ""
 	for child in child_list:
-		balance_string += "{}: ${:.2f}\n".format(child.name, child.allowance)
+		progress= child.get_progress()
+		balance_string += "{}: ${:.2f}  - {}\n".format(child.name, child.allowance, progress)
 
 	children_details.set(balance_string)
-
 
 
 
@@ -57,7 +66,7 @@ def buy_item(child):
 	try:
 		if child.buy(price.get()):
 			button_feedback.set("Success, {} bought an item for ${:.2f}.".format(child.name, price.get()))
-
+			
 	except Exception as e:
 		error = e.args[0]
 		if error == "negitive value":
@@ -134,6 +143,11 @@ children_details = StringVar()
 # Create the details label and places it in the GUI.
 details_label = ttk.Label(top_frame, textvariable=children_details)
 details_label.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
+
+
+
+
+
 
 
 
