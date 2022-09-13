@@ -4,10 +4,11 @@ from tkinter import ttk
 
 ###### CLASS CODE ######
 
-# Class to hold children's info so isn't reptive. 
+# Class to hold children's info so isn't repetitive. 
 class Child:
-	'''Collects all info about each child, 
-	stores it and then displays it.'''
+	'''
+	Collects all info about each child, stores it, and then displays it.
+	'''
 
 	# Collects and stores all child's info.
 	def __init__(self, name, allowance, bonus_cost):
@@ -17,16 +18,16 @@ class Child:
 		child_list.append(self)
 
 
-  	# Checks if anything is wrong with price and raises an exception error else takes price away form allowance. 
+  	# Checks if anything is wrong with price and raises an exception error else takes price away from allowance. 
 	def buy(self, price):
 		if price < 0:
-			raise Exception ("negitive value")
+			raise Exception ("Negative value")
 		if price > self.allowance:
-			raise Exception ("value exceeds allowance")
+			raise Exception ("Value exceeds allowance")
 		self.allowance -= price
 		return True
 
-	# Calculates if the bonus is possible for each child, the returns either string to display. 
+	# Calculates if the bonus is possible for each child, then returns either string to display. 
 	def get_progress(self):
 		if self.allowance >= 50:
 			progress =  "On target for bonus."
@@ -69,9 +70,9 @@ def buy_item(child):
 			
 	except Exception as e:
 		error = e.args[0]
-		if error == "negitive value":
+		if error == "Negative value":
 			button_feedback.set("Please enter a positive number.")
-		elif error == "value exceeds allowance":
+		elif error == "Value exceeds allowance":
 			button_feedback.set("Sorry {} does not have sufficient allowance left.".format(child.name))
 		else:
 			button_feedback.set("Please enter a valid number.")
@@ -79,7 +80,7 @@ def buy_item(child):
 
 
 
-# Checks if the chosen name is in child_list then lets that child buy_item, updates GUI and clears price entry. 
+# Checks if the chosen name is in child_list then lets that child buy_item, updates GUI, and clears price entry. 
 def manage_feedback():
 	for child in child_list:
 		if chosen_child.get() == child.name:
@@ -98,13 +99,14 @@ def manage_feedback():
 child_list = []
 
 
-# Enters childrens info.
+# Enters children's info.
 child1 = Child("Nikau", 300, 50)
 child2 = Child("Hana", 300, 50)
 child3 = Child("Tia", 300, 50)
 
 # defines list of names
 child_names = create_name_list()
+
 
 
 
@@ -119,10 +121,9 @@ root.title("Clothing Allowance App")
 
 
 
-# Frame for top part of app.
+# Frame for the top part of the app.
 top_frame = ttk.LabelFrame(root)
 top_frame.grid(row=0, column=0, padx=10, pady=10, sticky="NSEW")
-
 
 
 
@@ -150,17 +151,9 @@ details_label.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
 
 
 
-
-
-
-
-
-
-
-# Frame for the bottom part of app.
+# Frame for the bottom part of the app.
 bottom_frame = ttk.LabelFrame(root)
 bottom_frame.grid(row=1, column=0, padx=10, pady=10, sticky="NSEW")
-
 
 
 # Label for the child combobox and places it.
@@ -186,17 +179,17 @@ price_label.grid(row=4, column=0, padx = 10, pady = 10)
 price = DoubleVar()
 price.set("")
 
-# Entry for user to enter price of item.
+# Entry for the user to enter the price of an item.
 price_entry = ttk.Entry(bottom_frame, textvariable = price)
 price_entry.grid(row=4, column=1, padx = 10 , pady = 10)
 
 
 
-# Sumbit button to sumbit price when the user has finished.
+# Submit button to submit price when the user has finished.
 submit_button = ttk.Button(bottom_frame, text="Submit", command = manage_feedback)
 submit_button.grid(row=6, column=0, columnspan=2, padx=10, pady=10)
 
-# Feedback label so the user knows what happend.
+# Feedback label so the user knows what happened.
 button_feedback = StringVar()
 button_feedback_label = ttk.Label(bottom_frame, textvariable=button_feedback)
 button_feedback_label.grid(row=7, column=0, columnspan=2)
