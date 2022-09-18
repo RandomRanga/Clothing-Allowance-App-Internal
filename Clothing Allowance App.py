@@ -20,7 +20,7 @@ class Child:
 
   	# Checks if anything is wrong with price and raises an exception error else takes price away from allowance. 
 	def buy(self, price):
-		if price < 0:
+		if price <= 0:
 			raise Exception ("Negative value")
 		if price > self.allowance:
 			raise Exception ("Value exceeds allowance")
