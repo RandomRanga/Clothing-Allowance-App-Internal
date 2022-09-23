@@ -182,6 +182,13 @@ price.set("")
 # Entry for the user to enter the price of an item.
 price_entry = ttk.Entry(bottom_frame, textvariable = price)
 price_entry.grid(row=4, column=1, padx = 10 , pady = 10)
+#Define all the functions
+def size_1():
+   text.config(font=('Industrial Sans',20))
+
+def size_2():
+   text.config(font=('Urbani',40))
+
 
 
 
