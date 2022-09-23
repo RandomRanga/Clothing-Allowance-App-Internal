@@ -134,6 +134,7 @@ welcome_text.set("Welcome! You can track and edit all your children's allowances
 # Creates and places the welcome label.
 welcome_label = ttk.Label(top_frame, textvariable=welcome_text, wraplength=300)
 welcome_label.grid(row=0, column=0, columnspan=2, padx = 10, pady = 10)
+label(frame, text="16px").pack()
 
 
 
