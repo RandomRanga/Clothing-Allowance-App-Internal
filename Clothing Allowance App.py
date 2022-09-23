@@ -194,6 +194,13 @@ button_feedback = StringVar()
 button_feedback_label = ttk.Label(bottom_frame, textvariable=button_feedback)
 button_feedback_label.grid(row=7, column=0, columnspan=2)
 
+# set window size
+gui.geometry("400x200")
+
+#set window color
+gui.configure(bg='blue')
+
+
 
 # Runs the main loop and code.
 update_balance()
